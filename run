@@ -312,7 +312,7 @@ def gen():
 	except (KeyError, IOError):
 		logo()
 		print("")
-	cookie = raw_input("\n%s \033[1;97m [\033[1;96m+\033[1;97m] \033[1;96mMasukkan Cookies \033[1;97m: %s"%(P,P))
+	cookie = raw_input("%s\033[1;97m [\033[1;96m+\033[1;97m] \033[1;96mMasukkan Cookies \033[1;97m: %s"%(P,P))
 	if cookie in ['',' ']:
 		print("\n%s harap isi cookie nya jangan kosong"%(P))
 		gen()
