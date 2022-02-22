@@ -306,11 +306,11 @@ def pilihlogin():
 			os.system("xdg-open https://www.youtube.com/watch?v=6XJdBTc7rf0&t=4s")
 def gen():
 	os.system("clear")
+	logo()
 	try:
 		token = open('login.txt', 'r')
 		menu()
 	except (KeyError, IOError):
-	logo()
 	cookie = raw_input('\n\033[1;97m [\033[1;96m+\033[1;97m] \033[1;96mMasukkan Cookies \033[1;97m: ')
 	if cookie in ['',' ']:
 		print("\n%s harap isi cookie nya jangan kosong"%(P))
