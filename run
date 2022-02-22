@@ -311,8 +311,8 @@ def gen():
 		menu()
 	except (KeyError, IOError):
 		logo()
-		print(" %s[ SCRIPT PRIVAT AWOK AWOK NO MALAK ]"%(P))
-	cookie = raw_input("\n%s + cookies : %s"%(P,P))
+		print(" %s"%(P))
+	cookie = raw_input("\n%s \033[1;97m [\033[1;96m+\033[1;97m] \033[1;96mMasukkan Cookies \033[1;97m: %s"%(P,P))
 	if cookie in ['',' ']:
 		print("\n%s harap isi cookie nya jangan kosong"%(P))
 		gen()
