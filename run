@@ -415,7 +415,7 @@ def xxnx():
     else:
         lisen()
 
-useragents = 'Mozilla/5.0 (SymbianOS/9.3; Series60/3.2 NokiaE5-00/071.003; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/533.4 (KHTML, like Gecko) NokiaBrowser/7.3.1.26 Mobile Safari/533.4 3gpp-gba'
+useragents = 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/19D52 [FBAN/FBIOS;FBAV/354.0.0.29.106;FBBV/351086310;FBDV/iPhone12,3;FBMD/iPhone;FBSN/iOS;FBSV/15.3.1;FBSS/3;FBID/phone;FBLC/it_IT;FBOP/5;FBRV/352194681]'
 #------->menu crack india<-------#
 def menu():
 	os.system('clear')
