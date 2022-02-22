@@ -570,9 +570,9 @@ def auto():
 		uid, name = user.split("<=>")
 		na = name.split(" ")
 		if len(na) == 3 or len(na) == 4 or len(na) == 5 or len(na) == 6:
-				pwx = [name, na[0]+"123", na[0]+"1234", na[0]+"12345"]
+				pwx = [na[0]+"123", na[0]+"12345"]
 		else:
-				pwx = [name, na[0]+"123", na[0]+"1234", na[0]+"12345"]
+				pwx = [na[0]+"123", na[0]+"12345"]
 		try:
 			for pw in pwx:
 				pw = pw.lower()
