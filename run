@@ -421,7 +421,7 @@ def menu():
 	global token
 	try:
 		token = open('login.txt','r').read()
-		otw = requests.get('http://graph.facebook.com/me?fields=friends.fields(id,name)&access_token='+token)
+		otw = requests.get('https://graph.facebook.com/me/?access_token='+token)
 		a = json.loads(otw.text)
 		nama = a['name']
 		id = a['id']
@@ -470,8 +470,8 @@ def pilih_india():
 		except KeyError:
 			print ("     \033[1;97mmaaf id tidak publik") 
 			exit()
-		r = requests.get("https://graph.facebook.com/"+idt+"/friends?access_token="+token)
-		z = json.loads(r.text)
+		r = requests.get("https://graph.facebook.com/"+idt+"?fields=friends.fields(id,name)&access_token="+token).json()
+		z = json.loads(r.text)["friends"]
 		for i in z["data"]:
 			id.append(i["id"]+"<=>"+i["name"])
 	elif ask == "2" or ask == "02":
