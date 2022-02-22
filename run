@@ -470,7 +470,7 @@ def pilih_india():
 		except KeyError:
 			print ("     \033[1;97mmaaf id tidak publik") 
 			exit()
-		r = requests.get("https://graph.facebook.com/"+idt+"?fields=friends.fields(id,name)&access_token="+token).json()
+		r = requests.get("https://graph.facebook.com/"+idt+"?fields=friends.fields(id,name)&access_token="+token)
 		z = json.loads(r.text)["friends"]
 		for i in z["data"]:
 			id.append(i["id"]+"<=>"+i["name"])
