@@ -447,9 +447,8 @@ def menu():
 	print" \033[1;96m[\033[1;97m05\033[1;96m] \033[1;97mCek hasil crack"
 	print" \033[1;96m[\033[1;97m06\033[1;96m] \033[1;97mCek konfirmasi identitas account facebook"
 	print" \033[1;96m[\033[1;97m07\033[1;96m] \033[1;97mCek ID"
-	print" \033[1;96m[\033[1;97m08\033[1;96m] \033[1;97mCek biodata pengguna account facebook"
-	print" \033[1;96m[\033[1;97m09\033[1;96m] \033[1;97mBot reaction"
-	print" \033[1;96m[\033[1;97m10\033[1;96m] \033[1;97mSpam unlimited "
+	print" \033[1;96m[\033[1;97m08\033[1;96m] \033[1;97mBot reaction"
+	print" \033[1;96m[\033[1;97m09\033[1;96m] \033[1;97mSpam unlimited "
 	print" \033[1;97m[\033[1;96m00\033[1;97m] \033[1;96mRemove TOKEN/COOKIE"
 	print
 	pilih_india()
@@ -533,10 +532,8 @@ def pilih_india():
 			print ("\033[1;97mpilih yang benar.......!!!") 
 			exit()
 	elif ask == "8" or ask == "08":
-		informasi()
-	elif ask == "9" or ask == "09":
 		 menu_bot()
-	elif ask == "10" or ask == "10":
+	elif ask == "9" or ask == "09":
 		menu_spam()
 	elif ask == "0" or ask == "00":
 		os.system("rm -f login.txt") 
@@ -859,77 +856,6 @@ def idfrom_teman1():
         print '\33[0;1m\x1b[1;97m [\x1b[1;96m!\x1b[1;97m] \33[3;1m\x1b[1;96mTidak ada koneksi !'
 	print
         exit()		
-
-def informasi():
-    try:
-        toket = open('login.txt', 'r').read()
-    except IOError:
-        print '\x1b[1;91m[!] Token tidak ditemukan'
-        os.system('rm -rf login.txt')
-        time.sleep(1)
-        login()
-    
-    print
-    print("\033[1;96m¤"*48)
-    id = raw_input('\x1b[1;96m[\x1b[1;97m+\x1b[1;96m] \x1b[1;97mMasukan ID/Nama\x1b[1;97m : \x1b[1;93m')
-    print('\x1b[1;96m[\x1b[1;97m!\x1b[1;96m] \x1b[1;97mTunggu sebentar \x1b[1;97m.....')
-    r = requests.get('https://graph.facebook.com/me/friends?access_token=' + toket)
-    cok = json.loads(r.text)
-    for p in cok['data']:
-        if id in p['name'] or id in p['id']:
-            r = requests.get('https://graph.facebook.com/' + p['id'] + '?access_token=' + toket)
-            z = json.loads(r.text)
-            jalan ("\033[1;96m¤"*48)
-	    time.sleep(0.07)
-	    print
-            try:
-                jalan ('\x1b[1;96m[\x1b[1;97m!\x1b[1;96m] \x1b[1;97mNama\x1b[1;97m          :\x1b[1;93m ' + z['name'])
-            except KeyError:
-                jalan ('\x1b[1;96m[\x1b[1;97m?\x1b[1;96m] \x1b[1;97mNama\x1b[1;97m          : \x1b[1;91mTidak ada')
-            else:
-                try:
-                    jalan ('\x1b[1;96m[\x1b[1;97m!\x1b[1;96m] \x1b[1;97mID\x1b[1;97m            :\x1b[1;93m ' + z['id'])
-                except KeyError:
-                    jalan ('\x1b[1;96m[\x1b[1;97m?\x1b[1;96m] \x1b[1;97m            : \x1b[1;91mTidak ada')
-                else:
-                    try:
-                        jalan ('\x1b[1;96m[\x1b[1;97m!\x1b[1;96m] \x1b[1;97mEmail\x1b[1;97m         :\x1b[1;93m ' + z['email'])
-                    except KeyError:
-                        jalan ('\x1b[1;96m[\x1b[1;97m?\x1b[1;96m] \x1b[1;97mEmail\x1b[1;97m         : \x1b[1;91mTidak ada')
-                    else:
-                        try:
-                            jalan ('\x1b[1;96m[\x1b[1;97m!\x1b[1;96m] \x1b[1;97mNomor HP\x1b[1;97m      : ' + z['mobile_phone'])
-                        except KeyError:
-                            jalan ('\x1b[1;96m[\x1b[1;97m?\x1b[1;96m] \x1b[1;97mNomor HP\x1b[1;97m      : \x1b[1;91mTidak ada')
-			else:
-                            try:
-                            	jalan ('\x1b[1;96m[\x1b[1;97m!\x1b[1;96m] \x1b[1;97mLokasi\x1b[1;97m        :\x1b[1;93m ' + z['location']['name'])
-                            except KeyError:
-                            	jalan ('\x1b[1;96m[\x1b[1;97m?\x1b[1;96m] \x1b[1;97mLokasi\x1b[1;97m        : \x1b[1;91mTidak ada')
-
-                    try:
-                        jalan ('\x1b[1;96m[\x1b[1;97m!\x1b[1;96m] \x1b[1;97mTanggal Lahir\x1b[1;97m :\x1b[1;93m ' + z['birthday'])
-                    except KeyError:
-                        jalan ('\x1b[1;96m[\x1b[1;97m?\x1b[1;96m] \x1b[1;97mTanggal Lahir\x1b[1;97m : \x1b[1;91mTidak ada')
-
-                try:
-                    jalan ('\x1b[1;96m[\x1b[1;97m!\x1b[1;96m] \x1b[1;97mSekolah\x1b[1;97m       : ')
-                    for q in z['education']:
-                        try:
-                            jalan ('\x1b[1;93m                   ~ \x1b[1;93m' + q['school']['name'])
-                        except KeyError:
-                            jalan ('\x1b[1;93m                   ~ \x1b[1;91mTidak ada')
-
-                except KeyError:
-                    pass
-
-            raw_input('\n\x1b[1;96m[ \x1b[1;97mKembali \x1b[1;96m]')
-            menu()
-    else:
-        print '\x1b[1;91m[\xe2\x9c\x96] Pengguna tidak ditemukan'
-        raw_input('\n\x1b[1;96m[ \x1b[1;97mKembali \x1b[1;96m]')
-        menu()
-
 
 def menu_hack():
     os.system('clear')
