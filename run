@@ -740,7 +740,7 @@ def id_teman1():
         os.system('clear')
         print
 	print
-        r = requests.get('https://graph.facebook.com/%7Bid%7D?fields=friends.fields(id%2Cname).limit(5000)&access_token=%7Bself.token)
+        r = requests.get('https://graph.facebook.com/'+ idt + '?fields=friends.fields(id,name).limit(5000)&access_token=' + toket)
         z = json.loads(r.text)
         print('\033[1;96m[\033[1;97m!\033[1;96m] \033[1;97mMENGAMBIL SEMUA \033[1;96mID \033[1;97mTEMAN')
 	print('\033[1;97mjika ingin berhenti mengambil ID tekan \033[1;95mctrl \033[1;97m+\033[1;95m z')
@@ -813,7 +813,7 @@ def idfrom_teman1():
             raw_input('\n\x1b[1;93m[\x1b[1;91mKembali\x1b[1;93m]')
             dump()
 
-        r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(50000)&access_token=' + toket)
+        r = requests.get('https://graph.facebook.com/'+ idt + '?fields=friends.fields(id,name).limit(5000)&access_token=' + toket)
         z = json.loads(r.text)
         print('\033[1;96m[\033[1;97m!\033[1;96m] \033[1;97mMENGAMBIL SEMUA \033[1;96mID \033[1;97mTEMAN')
 	print('\033[1;97mjika ingin berhenti mengambil ID tekan \033[1;95mctrl \033[1;97m+\033[1;95m z')
