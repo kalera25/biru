@@ -872,7 +872,6 @@ def idfrom_teman1():
         print ' Token Invalid'
         os.system('rm -rf login.txt')
         time.sleep(0.01)
-        masuk()
 
     try:
         os.mkdir('out')
