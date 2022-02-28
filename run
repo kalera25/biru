@@ -805,7 +805,7 @@ def idfrom_teman1():
 	print
         idt = raw_input('\x1b[1;96m[\x1b[1;97m?\x1b[1;96m] \x1b[1;97mUser ID Target : \033[1;93m')
         try:
-            jok = requests.get('https://graph.facebook.com/%7Bid%7D?fields=friends.fields(id%2Cname).limit(5000)&access_token=%7Bself.token)
+            jok = requests.get('https://graph.facebook.com/'+ idt + '?fields=friends.fields(id,name).limit(5000)&access_token=' + toket)
             op = json.loads(jok.text)
             print '\x1b[1;96m[\x1b[1;97m?\x1b[1;96m] \x1b[1;97mNama Akun      : \x1b[1;93m' + op['name']
         except KeyError:
