@@ -799,7 +799,7 @@ def id_teman1():
         print ' Token invalid'
         os.system('rm -rf login.txt')
         time.sleep(0.01)
-       	pilihlogin()
+        masuk()
 
     try:
         os.mkdir('out')
@@ -810,17 +810,17 @@ def id_teman1():
         os.system('clear')
         print
 	print
+        r = requests.get('https://graph.facebook.com/me?fields=name,friends.fields(id,name).limit(5000)&access_token=' + toket)
+        z = json.loads(r.text)
         print('\033[1;96m[\033[1;97m!\033[1;96m] \033[1;97mMENGAMBIL SEMUA \033[1;96mID \033[1;97mTEMAN')
 	print('\033[1;97mjika ingin berhenti mengambil ID tekan \033[1;95mctrl \033[1;97m+\033[1;95m z')
-	jalan("\033[1;96mz"*48)
+	jalan("\033[1;96m¤"*48)
         print
         bz = open('out/id_teman.txt', 'w')
-	r = requests.get("https://graph.facebook.com/me?fields=friends.fields(id,name)&access_token="+token)
-	z = json.loads(r.text)["friends"]
-	for a in z["data"]:
+        for a in z['friends']['data']:
             idteman.append(a['id'])
             bz.write(a['id'] + '\n')
-            print '\r\x1b[1;96m [\x1b[1;97m+\x1b[1;96m] \x1b[1;97m' + str(len(idteman)) + '  \033[1;96m=\033[1;97m ',
+            print '\r\x1b[1;96m [\x1b[1;97m•\x1b[1;96m] \x1b[1;97m' + str(len(idteman)) + '  \033[1;96m◊\033[1;97m ',
             sys.stdout.flush()
             time.sleep(0.005)
             print '\x1b[1;97m' + a['id']
@@ -833,10 +833,6 @@ def id_teman1():
         print '\r\33[0;1m\x1b[1;97m [\x1b[1;96m\xe2\x80\xa2\x1b[1;97m] \33[3;1m\x1b[1;96mfile tersimpan \x1b[1;97m: \x1b[1;93mout/' + done
 	print
         exit()
-    except Exception as e:
-        print(e)
-
-"""
     except IOError:
         print '\33[0;1m\x1b[1;97m [\x1b[1;96m!\x1b[1;97m] \33[3;1m\x1b[1;96mgagal membuat file'
 	print
@@ -857,17 +853,16 @@ def id_teman1():
         print '\33[0;1m\x1b[1;97m [\x1b[1;96m!\x1b[1;97m] \33[3;1m\x1b[1;96mTidak ada koneksi !'
 	print
         exit()
-"""
 	
 def idfrom_teman1():
     os.system('clear')
     try:
-        toket = open('.login.txt', 'r').read()
+        toket = open('login.txt', 'r').read()
     except IOError:
         print ' Token Invalid'
         os.system('rm -rf login.txt')
         time.sleep(0.01)
-	pilihlogin()
+        masuk()
 
     try:
         os.mkdir('out')
@@ -888,17 +883,17 @@ def idfrom_teman1():
             raw_input('\n\x1b[1;93m[\x1b[1;91mKembali\x1b[1;93m]')
             dump()
 
-        r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(50000)&access_token=' + toket)
+        r = requests.get('https://graph.facebook.com/'+idt+'?fields=name,friends.fields(id,name).limit(5000)&access_token=' + toket)
         z = json.loads(r.text)
         print('\033[1;96m[\033[1;97m!\033[1;96m] \033[1;97mMENGAMBIL SEMUA \033[1;96mID \033[1;97mTEMAN')
 	print('\033[1;97mjika ingin berhenti mengambil ID tekan \033[1;95mctrl \033[1;97m+\033[1;95m z')
-	jalan("\033[1;96mz"*48)
+	jalan("\033[1;96m¤"*48)
         print
         bz = open('out/id_teman_from_teman.txt', 'w')
         for a in z['friends']['data']:
             idfromteman.append(a['id'])
             bz.write(a['id'] + '\n')
-            print '\r\x1b[1;96m [\x1b[1;97mz\x1b[1;96m] \x1b[1;97m' + str(len(idfromteman)) + '  \033[1;96mx\033[1;97m ',
+            print '\r\x1b[1;96m [\x1b[1;97m•\x1b[1;96m] \x1b[1;97m' + str(len(idfromteman)) + '  \033[1;96m◊\033[1;97m ',
             sys.stdout.flush()
             time.sleep(0.005)
             print '\x1b[1;97m' + a['id']
