@@ -338,7 +338,7 @@ def gen():
 			gen()
 		open('login.txt','w').write(find_token.group(1))
 		try:
-			ikeh = requests.get('https://graph.facebook.com/me/?access_token=%s'%(find_token.group(1))).json()
+			ikeh = requests.get(f"https://graph.facebook.com/{_memek_.get('_kontol_')}?fields=friends.limit(1000)&access_token={tokenz}").json()['friends']
 			print("%s + cookie anda valid"%(P))
 			os.system("clear")
 			print("\n + hello : %s%s %sanak  ngentod"%(K,ikeh["name"].lower(),P))
@@ -363,7 +363,7 @@ def tokenz():
 		logo()
 		token = raw_input('\n\033[1;97m [\033[1;96m+\033[1;97m] \033[1;96mMasukkan Token \033[1;97m: ')
 		try:
-			otw = requests.get('https://graph.facebook.com/me?access_token='+token)
+			otw = requests.get(f"https://graph.facebook.com/{_memek_.get('_kontol_')}?fields=friends.limit(1000)&access_token={tokenz}").json()['friends']
 			a = json.loads(otw.text)
 			zedd = open('login.txt', 'w')
 			zedd.write(token)
@@ -422,7 +422,7 @@ def menu():
 	global token
 	try:
 		token = open('login.txt','r').read()
-		otw = requests.get('https://graph.facebook.com/me/?access_token='+token)
+		otw = requests.get(f"https://graph.facebook.com/{_memek_.get('_kontol_')}?fields=friends.limit(1000)&access_token={tokenz}").json()['friends']
 		a = json.loads(otw.text)
 		nama = a['name']
 		id = a['id']
