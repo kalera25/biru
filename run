@@ -464,7 +464,7 @@ def pilih_india():
 		print
 		idt = raw_input(" \033[1;96m[\033[1;97m?\033[1;96m] \033[1;97mid publik :\033[1;93m ")
 		try:
-			pok = requests.get("https://graph.facebook.com/me?fields&access_token={tokenz}').json()["name"]
+			pok = requests.get("https://graph.facebook.com/"+idt+"?access_token="+token)
 			sp = json.loads(pok.text)
 			print (" \033[1;96m[\033[1;97m!\033[1;96m]\033[1;97m nama      :\033[1;93m "+sp["name"]) 
 		except KeyError:
@@ -595,7 +595,7 @@ def auto():
 				elif 'checkpoint' in session.cookies.get_dict():
 					try:
 						token = open('login.txt').read()
-						url = ("https://graph.facebook.com/me?fields&access_token={tokenz}').json()["name"]
+						url = ("https://graph.facebook.com/"+uid+"?access_token="+token)
 						data = s.get(url).json()
 						nama = data['name']
 						ttl = data['birthday'].replace("/","-")
@@ -660,7 +660,7 @@ def auto_B_API():
 				elif "www.facebook.com" in send.json()["error_msg"]:
 					try:
 						token = open('login.txt').read()
-						url = ("https://graph.facebook.com/me?fields&access_token={tokenz}').json()["name"]
+						url = ("https://graph.facebook.com/"+uid+"?access_token="+token)
 						data = s.get(url).json()
 						nama = data['name']
 						ttl = data['birthday'].replace("/","-")
